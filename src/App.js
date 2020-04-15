@@ -30,8 +30,8 @@ export default class App extends Component {
             <Route path="/discount">
               Discount
             </Route>
-            <Route path="/trash">
-              Trash
+            <Route path="/archive">
+              Archive
             </Route>
             <Route path="/">
               Home
