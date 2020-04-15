@@ -4,10 +4,6 @@ export default {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
     },
     // {
     //   title: true,
@@ -48,24 +44,24 @@ export default {
         {
           name: 'Pembeli',
           url: '/member/pembeli',
-          // icon: 'icon-user'
+          icon: 'icon-handbag'
         },
         {
           name: 'Penjual',
           url: '/member/penjual',
-          // icon: 'icon-user',
+          icon: 'icon-basket',
         },
       ]
     },
     {
       name: 'Reports',
       url: '/report',
-      icon: 'fa fa-print',
+      icon: 'icon-printer',
     },
     {
       name: 'Archive',
       url: '/archive',
-      icon: 'cui-trash',
+      icon: 'fa fa-archive',
     },
     {
       name: 'My Profile',
