@@ -6,6 +6,30 @@ export default class App extends Component {
     return(
       <Router>
           <Switch>
+            <Route path="/administrator">
+              Administrator
+            </Route>
+            <Route path="/dashboard">
+              Dashboard
+            </Route>
+            <Route path="/profile">
+              My Profile
+            </Route>
+            <Route path="/users">
+              Member
+            </Route>
+            <Route path="/transaction">
+              Transaction
+            </Route>
+            <Route path="/report">
+              Report
+            </Route>
+            <Route path="/product">
+              Product
+            </Route>
+            <Route path="/discount">
+              Discount
+            </Route>
             <Route path="/">
               Home
             </Route>
