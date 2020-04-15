@@ -30,6 +30,9 @@ export default class App extends Component {
             <Route path="/discount">
               Discount
             </Route>
+            <Route path="/trash">
+              Trash
+            </Route>
             <Route path="/">
               Home
             </Route>
