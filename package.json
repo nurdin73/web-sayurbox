@@ -15,16 +15,16 @@
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
     "core-js": "^3.1.4",
+    "datatables.net-bs4": "^1.10.20",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
-    "mdbreact": "^4.25.6",
+    "jquery": "^3.5.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.1",
-    "react-bootstrap": "^1.0.0",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -34,7 +34,8 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
-    "simple-line-icons": "^2.4.1"
+    "simple-line-icons": "^2.4.1",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

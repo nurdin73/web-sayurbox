@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
-import { Card, CardBody, Table, Badge, Button } from 'reactstrap'
+import { Card, CardBody } from 'reactstrap'
+import Datatable from '../../../Components/Datatable';
+const dataSet = [
+  [ "1", "SYB02038479NBS93", "Edinburgh", '<span class="badge badge-warning badge-sm">pending</span>', "2011/04/25", '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-truck"></i> Update</button><button class="btn btn-sm btn-info mr-2"><i class="fa fa-truck"></i> Detail</button>' ],
+  [ "2", "SYB0203847HDKFL3", "Tokyo", '<span class="badge badge-warning badge-sm">pending</span>', "2011/07/25", '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-truck"></i> Update</button><button class="btn btn-sm btn-info mr-2"><i class="fa fa-truck"></i> Detail</button>' ],
+];
+
+const columns = [
+  {title:"No"},
+  {title:"Kode Transaction"},
+  {title:"Address"},
+  {title:"Status."},
+  {title:"Last Update"},
+  {title:"Action"},
+]
 class Transaction extends Component {
   render() {
     return (
@@ -7,33 +21,7 @@ class Transaction extends Component {
         {/* Content in here */}
         <Card>
           <CardBody>
-            <Table striped bordered>
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Kode Transaction</th>
-                  <th>Buyer</th>
-                  <th>Address</th>
-                  <th>Status</th>
-                  <th>Last Update</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>SYB0203402HG021</td>
-                  <td>John doe</td>
-                  <td>Disana</td>
-                  <td><Badge color="warning">Pending</Badge></td>
-                  <td>20 April 2020 17:00:00</td>
-                  <td>
-                    <Button color="primary mr-2"><i className="fa fa-truck"></i> Update</Button>
-                    <Button color="info"><i className="fa fa-list"></i> Detail</Button>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            <Datatable data={dataSet} column={columns}/>
           </CardBody>
         </Card>
       </div>
