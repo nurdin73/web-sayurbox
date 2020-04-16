@@ -12,9 +12,9 @@
                 columns: this.props.column,
                 columnDefs: [
                     {
-                        targets: [0,3,4,5],
-                        searchable: false,
-                        orderable: false
+                        targets: this.props.target,
+                        searchable: this.props.searchable,
+                        orderable: this.props.orderable
                     }
                 ]
             }
@@ -26,9 +26,11 @@
     render() {
         return (
             <React.Fragment>
-                <table className="table table-bordered" width="100%" ref={el => this.el = el} >
+                <div className="table-responsive">
+                    <table className="table table-bordered" width="100%" ref={el => this.el = el} >
 
-                </table>
+                    </table>
+                </div>
             </React.Fragment>
         )
     }

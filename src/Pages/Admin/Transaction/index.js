@@ -21,7 +21,7 @@ class Transaction extends Component {
         {/* Content in here */}
         <Card>
           <CardBody>
-            <Datatable data={dataSet} column={columns}/>
+            <Datatable data={dataSet} column={columns} orderable={false} searchable={false} target={[0,3,4,5]}/>
           </CardBody>
         </Card>
       </div>
