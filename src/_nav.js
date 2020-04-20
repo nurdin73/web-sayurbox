@@ -72,6 +72,18 @@ export default {
           name: 'Member',
           url: '/archive/member',
           icon: 'cui-user',
+          children: [
+            {
+              name: 'Seller',
+              url: '/archive/member/seller',
+              icon: 'icon-basket-loaded'
+            },
+            {
+              name: 'Buyer',
+              url: '/archive/member/buyer',
+              icon: 'cui-user',
+            },
+          ]
         },
       ]
     },
