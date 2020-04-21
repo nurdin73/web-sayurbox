@@ -1,66 +1,31 @@
 import React, { Component } from 'react';
 import { 
-  Row,
-  Col,
-  Card,
+  Card, 
   CardBody,
-  CardImg,
-  CardTitle,
-  Button,
-  Form,
   FormGroup,
-  FormText,
-  FormFeedback,
   Label,
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  Input
-} from "reactstrap";
-import './style.css';
+  Input, 
+  CardHeader} from 'reactstrap'
+import Datatable from '../../../Components/Datatable';
 import Modals from './Modal';
 
-class Product extends Component {
+const columns = [
+  {title:"No"},
+  {title:"Nama Produk"},
+  {title:"Harga"},
+  {title:"Foto"},
+  {title:"Action"},
+]
+class Transaction extends Component {
   constructor(){
     super()
-    this.state = {
+    this.state={
       data: [
-        {
-          id: 1,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
-        {
-          id: 2,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
-        {
-          id: 3,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
-        {
-          id: 4,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
-        {
-          id: 5,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
-        {
-          id: 6,
-          name: "Jahe Putih",
-          price: 10000,
-          image: "https://firebasestorage.googleapis.com/v0/b/project-2059615900628317391.appspot.com/o/vegetable-new%2F1533533465507_jahe%202.jpg?alt=media"
-        },
+        [ "1", "Jahe Merah", "Rp. 10,000", '<img alt="product" width="60px" height="60px" src="https://cdn-radar.jawapos.com/uploads/radarsurabaya/news/2020/02/07/jahe-merah-bantu-hadapi-virus-corona_m_1581045456_178272.jpg" />', '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-sm btn-danger mr-2"><i class="fa fa-trash"></i> delete</button>' ],
+        [ "1", "Jahe Merah", "Rp. 10,000", '<img alt="product" width="60px" height="60px" src="https://cdn-radar.jawapos.com/uploads/radarsurabaya/news/2020/02/07/jahe-merah-bantu-hadapi-virus-corona_m_1581045456_178272.jpg" />', '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-sm btn-danger mr-2"><i class="fa fa-trash"></i> delete</button>' ],
       ],
       isModalOpen: false
     }
@@ -69,91 +34,58 @@ class Product extends Component {
     this.setState({isModalOpen: !this.state.isModalOpen})
   }
   render() {
-    const { 
-      data,
-      isModalOpen
-    } = this.state
+    const { data } = this.state
+    const { isModalOpen } = this.state
     return (
       <div className="animated fadeIn">
-          <Row style={{margin:"1%"}}>
-            <Col>
-              <h3>Katalog Produk</h3>
-            </Col>
-            <Col>
-              <div style={{float:"right"}}>
-              <Modals
-                isOpen={isModalOpen}
-                toggleModal={this.modalToggler}
-                headerTitle={"Tambah Katalog Produk"}
-                toggle={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
-                cancelAction={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
-                togglerTitle={<i className="fa fa-plus">Tambah</i>}
-                togglerColor="primary"
-                togglerSize="md">
-                <Row>
-                  <Col lg="12">
-                     <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="name">Nama Produk</Label>
-                        <Input type="text" id="name" placeholder="Enter your name" />
-                      </FormGroup>
+        {/* Content in here */}
+        <Card>
+          <CardHeader>
+          <Modals
+                  isOpen={isModalOpen}
+                  toggleModal={this.modalToggler}
+                  headerTitle={"Tambah Katalog Produk"}
+                  toggle={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
+                  cancelAction={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
+                  togglerTitle={<i className="fa fa-plus">Tambah</i>}
+                  togglerColor="primary"
+                  togglerSize="md">
+
                       <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="appendedPrependedInput">Harga</Label>
-                        <div className="controls">
-                          <InputGroup className="input-prepend">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>Rp</InputGroupText>
-                            </InputGroupAddon>
-                            <Input id="appendedPrependedInput" size="16" type="text" />
-                            <InputGroupAddon addonType="append">
-                              <InputGroupText>.00</InputGroupText>
-                            </InputGroupAddon>
-                          </InputGroup>
-                        </div>
-                      </FormGroup>
-                      <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="satuan">Satuan Produk</Label>
-                        <Input type="text" id="satuan" placeholder="Satuan Produk" />
-                      </FormGroup>
-                      <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="name">Foto</Label>
-                        <Input style={{border:"2px solid #ededed",borderRadius:"2px"}} type="file" id="name" placeholder="Enter your name" />
-                      </FormGroup>
-                  </Col>
-                </Row>
-              </Modals>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="container">
-            {data.map(v=>
-              <Card key={v.id} className="card-content">
-                <CardBody className="card-body-container">
-                  <Row>
-                    <Col lg="3">
-                    <CardImg                    
-                    alt="product"
-                    src={v.image} />              
-                    </Col>
-                    <Col lg="7">
-                    <div className="text-container">
-                      <CardTitle className="product-title">{v.name}</CardTitle>
-                      <CardTitle className="product-price">Rp. {v.price}</CardTitle>
-                    </div>
-                    </Col>
-                    <Col lg="2" className="action-button">
-                      <Button size="sm" color="primary"><i className="fa fa-pencil"></i></Button>                  
-                      <Button size="sm" color="danger"><i className="fa fa-trash"></i></Button>
-                    </Col>
-                  </Row>
-                </CardBody>
-              </Card>
-            )}
-            </Col>
-          </Row>
+                          <Label style={{fontWeight:"bold"}} htmlFor="name">Nama Produk</Label>
+                          <Input type="text" id="name" placeholder="Enter your name" />
+                        </FormGroup>
+                        <FormGroup>
+                          <Label style={{fontWeight:"bold"}} htmlFor="appendedPrependedInput">Harga</Label>
+                          <div className="controls">
+                            <InputGroup className="input-prepend">
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>Rp</InputGroupText>
+                              </InputGroupAddon>
+                              <Input id="appendedPrependedInput" size="16" type="text" />
+                              <InputGroupAddon addonType="append">
+                                <InputGroupText>.00</InputGroupText>
+                              </InputGroupAddon>
+                            </InputGroup>
+                          </div>
+                        </FormGroup>
+                        <FormGroup>
+                          <Label style={{fontWeight:"bold"}} htmlFor="satuan">Satuan Produk</Label>
+                          <Input type="text" id="satuan" placeholder="Satuan Produk" />
+                        </FormGroup>
+                        <FormGroup>
+                          <Label style={{fontWeight:"bold"}} htmlFor="name">Foto</Label>
+                          <Input style={{border:"2px solid #ededed",borderRadius:"2px"}} type="file" id="name" placeholder="Enter your name" />
+                        </FormGroup>
+                </Modals>
+          </CardHeader>
+          <CardBody>
+            <Datatable data={data} column={columns} orderable={false} searchable={false} />
+          </CardBody>
+        </Card>
       </div>
     );
   }
 }
 
-export default Product;
+export default Transaction;
