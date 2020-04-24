@@ -63,9 +63,9 @@ class Login extends Component {
 
   }
   render() {
-    if (localStorage.getItem('token') !== null || localStorage.getItem('token') !== undefined) {
-      return <Redirect to={{pathname: 'dashboard'}} />
-    }
+    // if (localStorage.getItem('token') !== null || localStorage.getItem('token') !== undefined) {
+    //   return <Redirect to={{pathname: 'dashboard'}} />
+    // }
     const login = this.props.login
     if(login.login.status === "success") {
       localStorage.setItem('token', login.login.data.token);
