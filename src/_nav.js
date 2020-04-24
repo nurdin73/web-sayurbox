@@ -62,6 +62,30 @@ export default {
       name: 'Archive',
       url: '/archive',
       icon: 'fa fa-archive',
+      children: [
+        {
+          name: 'Product',
+          url: '/archive/product',
+          icon: 'icon-basket-loaded'
+        },
+        {
+          name: 'Member',
+          url: '/archive/member',
+          icon: 'cui-user',
+          children: [
+            {
+              name: 'Seller',
+              url: '/archive/member/seller',
+              icon: 'icon-basket-loaded'
+            },
+            {
+              name: 'Buyer',
+              url: '/archive/member/buyer',
+              icon: 'cui-user',
+            },
+          ]
+        },
+      ]
     },
     {
       name: 'My Profile',
