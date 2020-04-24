@@ -1,5 +1,5 @@
-import React, { Component, Fragment, useState } from 'react';
-import { Badge, Button, Card, CardBody, CardHeader, Col, Modal, ModalHeader, ModalBody, ModalFooter, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
+import React, { Component, Fragment } from 'react';
+import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row, Table } from 'reactstrap';
 
 class Buyer extends Component {
   render() {
@@ -8,7 +8,6 @@ class Buyer extends Component {
         photo: 'image',
         name: "Vishnu Serghei",
         email: "email@email.com",
-        password: "******",
         phoneNumber: "087878787878",
         isActive: "Active"
       },
@@ -16,7 +15,6 @@ class Buyer extends Component {
         photo: 'image',
         name: "Vishnu Serghei",
         email: "email@email.com",
-        password: "******",
         phoneNumber: "087878787878",
         isActive: "Active"
       },
@@ -24,7 +22,6 @@ class Buyer extends Component {
         photo: 'image',
         name: "Vishnu Serghei",
         email: "email@email.com",
-        password: "******",
         phoneNumber: "087878787878",
         isActive: "Active"
       }
@@ -84,7 +81,6 @@ class Buyer extends Component {
                       <th onClick={() => console.log("test")}>Foto</th>
                       <th>Nama</th>
                       <th>E-mail</th>
-                      <th>Password</th>
                       <th>Nomor Telepon</th>
                       <th>Status</th>
                     </tr>
@@ -96,7 +92,6 @@ class Buyer extends Component {
                           <td>{buyer.photo}</td>
                           <td>{buyer.name}</td>
                           <td>{buyer.email}</td>
-                          <td>{buyer.password}</td>
                           <td>{buyer.phoneNumber}</td>
                           <td>
                             <Badge color="success">{buyer.isActive}</Badge> {/* color: success, danger, secondary, warning */}
