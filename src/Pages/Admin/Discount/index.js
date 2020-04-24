@@ -25,7 +25,7 @@ class Transaction extends Component {
     this.state={
       data: [
         [ "1", "Jahe Merah", "Rp. 10,000", '10%', '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-sm btn-danger mr-2"><i class="fa fa-trash"></i> delete</button>' ],
-        [ "1", "Jahe Merah", "Rp. 10,000", '10%', '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-sm btn-danger mr-2"><i class="fa fa-trash"></i> delete</button>' ],
+        [ "2", "Jahe Merah", "Rp. 10,000", '10%', '<button class="btn btn-sm btn-primary mr-2"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-sm btn-danger mr-2"><i class="fa fa-trash"></i> delete</button>' ],
       ],
       isModalOpen: false
     }
@@ -44,7 +44,7 @@ class Transaction extends Component {
         <Modals
                 isOpen={isModalOpen}
                 toggleModal={this.modalToggler}
-                headerTitle={"Tambah Katalog Produk"}
+                headerTitle={"Tambah Diskon Produk"}
                 toggle={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
                 cancelAction={()=>this.setState({isModalOpen: !this.state.isModalOpen})}
                 togglerTitle={<i className="fa fa-plus">Tambah</i>}
@@ -52,30 +52,21 @@ class Transaction extends Component {
                 togglerSize="md">
 
                      <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="name">Nama Produk</Label>
-                        <Input type="text" id="name" placeholder="Enter your name" />
+                        <Label style={{fontWeight:"bold"}} htmlFor="name">Produk</Label>
+                        <Input type="select" id="name" placeholder="Enter your name">
+                          <option>Jahe Merah</option>
+                          <option>Jahe Merah</option>
+                          <option>Jahe Merah</option>
+                          <option>Jahe Merah</option>
+                        </Input>
                       </FormGroup>
                       <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="appendedPrependedInput">Harga</Label>
-                        <div className="controls">
-                          <InputGroup className="input-prepend">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>Rp</InputGroupText>
-                            </InputGroupAddon>
-                            <Input id="appendedPrependedInput" size="16" type="text" />
-                            <InputGroupAddon addonType="append">
-                              <InputGroupText>.00</InputGroupText>
-                            </InputGroupAddon>
-                          </InputGroup>
-                        </div>
+                        <Label style={{fontWeight:"bold"}} htmlFor="satuan">Minimal Pembelian</Label>
+                        <Input type="number" id="satuan" placeholder="Satuan Produk" />
                       </FormGroup>
                       <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="satuan">Satuan Produk</Label>
-                        <Input type="text" id="satuan" placeholder="Satuan Produk" />
-                      </FormGroup>
-                      <FormGroup>
-                        <Label style={{fontWeight:"bold"}} htmlFor="name">Foto</Label>
-                        <Input style={{border:"2px solid #ededed",borderRadius:"2px"}} type="file" id="name" placeholder="Enter your name" />
+                        <Label style={{fontWeight:"bold"}} htmlFor="name">Tanggal Berlaku</Label>
+                        <Input type="date" id="satuan" />
                       </FormGroup>
               </Modals>
         </CardHeader>
