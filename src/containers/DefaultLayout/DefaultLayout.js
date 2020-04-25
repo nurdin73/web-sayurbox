@@ -18,6 +18,8 @@ import {
 import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
+import { connect } from 'react-redux';
+import { getProfile } from '../../_actions/profile';
 
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
@@ -31,12 +33,22 @@ class DefaultLayout extends Component {
     this.props.history.push('/login')
   }
 
+  componentDidMount() {
+    // this.props.getprofile()
+  }
+  componentWillMount() {
+    this.props.getprofile()
+  }
+
   render() {
+    const {profile} = this.props.profile
+    const check = profile.status === undefined ? '' : profile.status
+    
     return (
       <div className="app">
         <AppHeader fixed>
           <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+            <DefaultHeader nameProfile={profile.status === undefined ? '' : profile.data.name} onLogout={e=>this.signOut(e)}/>
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -86,5 +98,17 @@ class DefaultLayout extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    profile : state.profile
+  }
+}
 
-export default DefaultLayout;
+const mapDispatchToProps = dispatch => {
+  return {
+    getprofile: () => {
+      dispatch(getProfile())
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);

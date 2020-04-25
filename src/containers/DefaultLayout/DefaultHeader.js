@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav } from 'reactstrap';
 import PropTypes from 'prop-types';
-
 import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
+import { connect } from 'react-redux';
 // import logo from '../../assets/img/brand/logo.svg'
 // import sygnet from '../../assets/img/brand/sygnet.svg'
 
@@ -13,11 +13,13 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+
   render() {
 
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
-
+    // const validate = async
+    
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
@@ -38,7 +40,9 @@ class DefaultHeader extends Component {
           </NavItem> */}
           <UncontrolledDropdown nav direction="down">
             <DropdownToggle nav>
-              <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+              {/* <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" /> */}
+              {/* <span className="mr-3">{profile profile.data.name}</span> */}
+              <strong className="mr-3">{this.props.nameProfile}</strong>
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem header tag="div" className="text-center"><strong>Settings</strong></DropdownItem>
@@ -58,4 +62,4 @@ class DefaultHeader extends Component {
 DefaultHeader.propTypes = propTypes;
 DefaultHeader.defaultProps = defaultProps;
 
-export default DefaultHeader;
+export default connect()(DefaultHeader);
