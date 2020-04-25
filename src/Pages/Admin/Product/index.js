@@ -71,7 +71,11 @@ class Transaction extends Component {
                         </FormGroup>
                         <FormGroup>
                           <Label style={{fontWeight:"bold"}} htmlFor="satuan">Satuan Produk</Label>
-                          <Input type="text" id="satuan" placeholder="Satuan Produk" />
+                          <Input type="text" id="satuan" placeholder="Satuan Produk">
+                            <option>Kg</option>
+                            <option>g</option>
+                            <option>buah</option>
+                          </Input>
                         </FormGroup>
                         <FormGroup>
                           <Label style={{fontWeight:"bold"}} htmlFor="name">Foto</Label>
