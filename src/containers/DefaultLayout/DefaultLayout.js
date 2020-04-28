@@ -42,8 +42,6 @@ class DefaultLayout extends Component {
 
   render() {
     const {profile, error} = this.props.profile
-    const check = localStorage.getItem('token') === undefined ? '' : localStorage.getItem('token')
-    console.log(profile);
     
     if(error) {
       return (
