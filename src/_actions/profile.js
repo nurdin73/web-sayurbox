@@ -2,7 +2,7 @@ import { PROFILE, URL_API } from "../config/constants"
 import Axios from "axios"
 
 export const getProfile = () => {
-    const token = localStorage.getItem('token').length > 0 ? localStorage.getItem('token') : 'token undefined'
+    const token = localStorage.getItem('token') === undefined ? '' : localStorage.getItem('token')
     return {
         type: PROFILE,
         payload: Axios({

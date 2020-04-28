@@ -25,7 +25,8 @@ export const profile = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                error: true
+                error: true,
+                profile: action.payload
             }
             break;
         default:

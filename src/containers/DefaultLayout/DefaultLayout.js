@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
-import { Container } from 'reactstrap';
+import { Container, Label } from 'reactstrap';
 
 import {
   AppFooter,
@@ -41,61 +41,78 @@ class DefaultLayout extends Component {
   }
 
   render() {
-    const {profile} = this.props.profile
-    const check = profile.status === undefined ? '' : profile.status
+    const {profile, error} = this.props.profile
+    const check = localStorage.getItem('token') === undefined ? '' : localStorage.getItem('token')
+    console.log(profile);
     
-    return (
-      <div className="app">
-        <AppHeader fixed>
-          <Suspense  fallback={this.loading()}>
-            <DefaultHeader nameProfile={profile.status === undefined ? '' : profile.data.name} onLogout={e=>this.signOut(e)}/>
-          </Suspense>
-        </AppHeader>
-        <div className="app-body">
-          <AppSidebar fixed display="lg">
-            <AppSidebarHeader />
-            <AppSidebarForm />
-            <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
-            </Suspense>
-            <AppSidebarFooter />
-            <AppSidebarMinimizer />
-          </AppSidebar>
-          <main className="main">
-            <AppBreadcrumb appRoutes={routes} router={router}/>
-            <Container fluid>
-              <Suspense fallback={this.loading()}>
-                <Switch>
-                  {routes.map((route, idx) => {
-                    return route.component ? (
-                      <Route
-                        key={idx}
-                        path={route.path}
-                        exact={route.exact}
-                        name={route.name}
-                        render={props => (
-                          <route.component {...props} />
-                        )} />
-                    ) : (null);
-                  })}
-                  <Redirect from="/" to="/login" />
-                </Switch>
-              </Suspense>
-            </Container>
-          </main>
-          {/* <AppAside fixed>
-            <Suspense fallback={this.loading()}>
-              <DefaultAside />
-            </Suspense>
-          </AppAside> */}
+    if(error) {
+      return (
+        <div>
+          <Label>{profile.message}</Label>
         </div>
-        <AppFooter>
-          <Suspense fallback={this.loading()}>
-            <DefaultFooter />
-          </Suspense>
-        </AppFooter>
-      </div>
-    );
+      )
+    }
+    if (profile.status === "error") {
+      return (
+        <div>
+          <Label>{ profile.message }</Label>
+        </div>
+      )
+    } else {
+      return (
+        <div className="app">
+          <AppHeader fixed>
+            <Suspense  fallback={this.loading()}>
+              <DefaultHeader nameProfile={profile.data === undefined ? 'undefined' : profile.data.name} onLogout={e=>this.signOut(e)}/>
+            </Suspense>
+          </AppHeader>
+          <div className="app-body">
+            <AppSidebar fixed display="lg">
+              <AppSidebarHeader />
+              <AppSidebarForm />
+              <Suspense>
+              <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+              </Suspense>
+              <AppSidebarFooter />
+              <AppSidebarMinimizer />
+            </AppSidebar>
+            <main className="main">
+              <AppBreadcrumb appRoutes={routes} router={router}/>
+              <Container fluid>
+                <Suspense fallback={this.loading()}>
+                  <Switch>
+                    {routes.map((route, idx) => {
+                      return route.component ? (
+                        <Route
+                          key={idx}
+                          path={route.path}
+                          exact={route.exact}
+                          name={route.name}
+                          render={props => (
+                            <route.component {...props} />
+                          )} />
+                      ) : (null);
+                    })}
+                    <Redirect from="/" to="/login" />
+                  </Switch>
+                </Suspense>
+              </Container>
+            </main>
+            {/* <AppAside fixed>
+              <Suspense fallback={this.loading()}>
+                <DefaultAside />
+              </Suspense>
+            </AppAside> */}
+          </div>
+          <AppFooter>
+            <Suspense fallback={this.loading()}>
+              <DefaultFooter />
+            </Suspense>
+          </AppFooter>
+        </div>
+      );
+    }
+    
   }
 }
 const mapStateToProps = state => {
