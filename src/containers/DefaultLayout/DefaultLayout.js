@@ -23,6 +23,7 @@ import { getProfile } from '../../_actions/profile';
 
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
+const Page500 = React.lazy(() => import('../../Pages/Utility/Page500'));
 
 class DefaultLayout extends Component {
 
@@ -45,16 +46,12 @@ class DefaultLayout extends Component {
     
     if(error) {
       return (
-        <div>
-          <Label>{profile.message}</Label>
-        </div>
+        <Page500 error={profile.stack} message={profile.message} statusCode={500} />
       )
     }
     if (profile.status === "error") {
       return (
-        <div>
-          <Label>{ profile.message }</Label>
-        </div>
+        <Page500 error={profile.status} statusCode={profile.statusCode} message={profile.message} />
       )
     } else {
       return (
