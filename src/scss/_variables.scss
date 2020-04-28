@@ -1,1 +1,22 @@
 // Variable overrides
+$primary: #439d46 !default;
+$discount: #f97535 !default;
+
+
+$navbar-bg: $primary !default;
+$navbar-border: none !default;
+$navbar-color: #fff !default;
+$navbar-hover-color: #f7f7f7 !default;
+
+$sidebar-bg: #f97535 !default;
+$sidebar-nav-link-hover-bg: $primary !default;
+$sidebar-nav-link-active-bg: $primary !default;
+$sidebar-nav-link-active-icon-color: #fff !default;
+$sidebar-nav-link-icon-color:  #fff !default;
+$sidebar-nav-dropdown-indicator-color: #fff !default;
+
+$footer-bg: #f7f7f7 !default; 
+
+
+$dropdown-divider-bg: $primary !default;
+$dropdown-header-color: #fff !default;
