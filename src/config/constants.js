@@ -8,3 +8,6 @@ export const ARCHIVE_BUYER = 'ARCHIVE_BUYER'
 export const ARCHIVE_PRODUCT = 'ARCHIVE_PRODUCT'
 
 export const TRANSACTION = 'TRANSACTION'
+
+export const BUYER = 'BUYER'
+export const SELLER = 'SELLER'

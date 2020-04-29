@@ -3,7 +3,7 @@ import {
     Modal,
     ModalHeader,
     ModalBody,
-    ModalFooter,
+    // ModalFooter,
     Button
 } from "reactstrap"
 
@@ -15,8 +15,8 @@ export default class Modals extends Component{
             toggle, 
             modalClass, 
             headerTitle,
-            okAction,
-            cancelAction,
+            // okAction,
+            // cancelAction,
             toggleModal,
             togglerColor,
             togglerTitle,

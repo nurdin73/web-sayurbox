@@ -7,16 +7,12 @@ import {
   Col,
   FormGroup,
   Label,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Input,
   Pagination,
   PaginationItem,
   PaginationLink,
   Row,
   Table,
-  Button,
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -86,7 +82,7 @@ class Buyer extends Component {
                     {dataBuyer.map((buyer, index) =>
                       <Fragment key={index}>
                         <tr onClick={() => console.log("test body")} style={{ cursor: 'pointer' }} >
-                          <td><img src={buyer.photo} style={{ width: 100, display: "block", margin: "0 auto" }} /></td>
+                          <td><img src={buyer.photo} style={{ width: 100, display: "block", margin: "0 auto" }} alt="buyerPhoto" /></td>
                           <td>{buyer.name}</td>
                           <td>{buyer.email}</td>
                           <td>{buyer.phoneNumber}</td>
