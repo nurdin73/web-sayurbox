@@ -1,25 +1,25 @@
-import { PROFILE } from "../config/constants";
+import { PRODUCT } from "../config/constants";
 
 const initialState = {
-    profile: {},
+    product: {},
     isLoading : false,
     error: false
 }
 
-export const profile = (state = initialState, action) => {
+export const product = (state = initialState, action) => {
     switch (action.type) {
-        case `${PROFILE}_PENDING`:
+        case `${PRODUCT}_PENDING`:
             return {
                 ...state,
                 isLoading: true,
             }
-        case `${PROFILE}_FULFILLED`:
+        case `${PRODUCT}_FULFILLED`:
             return {
                 ...state,
                 isLoading: false,
                 profile: action.payload.data
             }
-        case `${PROFILE}_REJECTED`:
+        case `${PRODUCT}_REJECTED`:
             return {
                 ...state,
                 isLoading: false,

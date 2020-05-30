@@ -13,24 +13,20 @@ export const transaction = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
-            break;
         case `${TRANSACTION}_FULFILLED`:
             return {
                 ...state,
                 transaction: action.payload.data,
                 isLoading: false
             }
-            break;   
         case `${TRANSACTION}_REJECTED`:
             return {
                 ...state,
                 error: true,
                 isLoading: false
             }
-            break; 
         default:
             return state
-            break;
     }
 }
 

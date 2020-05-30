@@ -13,24 +13,20 @@ export const archiveProduct = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
-            break;
         case `${ARCHIVE_PRODUCT}_FULFILLED`:
             return {
                 ...state,
                 archiveProduct: action.payload.data,
                 isLoading: false
-            }
-            break;   
+            }  
         case `${ARCHIVE_PRODUCT}_REJECTED`:
             return {
                 ...state,
                 error: true,
                 isLoading: false
             }
-            break; 
         default:
-            return state
-            break;
+            return state            
     }
 }
 

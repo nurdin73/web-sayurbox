@@ -24,3 +24,8 @@
 .action-button-text{
     font-size: 1em;
 }
+.datatbletop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody, Col, Row } from 'reactstrap';
+import { Card, CardBody, Col, Row, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 // import { setLogin } from '../../../_actions/login';
 
@@ -52,7 +52,10 @@ class Profile extends Component {
                 <i className="fa fa-align-justify"></i> Daftar Pembeli
               </CardHeader> */}
                 <CardBody>
-                  <h2>{profile.data.name}</h2>
+                <Row>
+                  <Col lg="10"><h2>{profile.data.name}</h2></Col>
+                  <Col><Button style={{float:"right"}} color="success">&nbsp;Logout</Button></Col>
+                </Row>
                   <img src="https://jncheli.co.za/wp-content/uploads/2016/10/profile-pict-circle.png" className="img-avatar" alt="adminProfilePhoto" style={{ height: 200, justify: "center", display: "block", margin: "0 auto" }}></img>
                   <p>{profile.data.email}</p>
                   <p>{profile.data.phoneNumber}</p>

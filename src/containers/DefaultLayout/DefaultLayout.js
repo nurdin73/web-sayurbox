@@ -58,7 +58,7 @@ class DefaultLayout extends Component {
         <div className="app">
           <AppHeader fixed>
             <Suspense  fallback={this.loading()}>
-              <DefaultHeader nameProfile={profile.data === undefined ? 'undefined' : profile.data.name} onLogout={e=>this.signOut(e)}/>
+              {/* <DefaultHeader nameProfile={profile.data === undefined ? 'undefined' : profile.data.name} onLogout={e=>this.signOut(e)}/> */}
             </Suspense>
           </AppHeader>
           <div className="app-body">

@@ -14,18 +14,11 @@ export default class Modals extends Component{
             isOpen, 
             toggle, 
             modalClass, 
-            headerTitle,
-            // okAction,
-            // cancelAction,
-            toggleModal,
-            togglerColor,
-            togglerTitle,
-            togglerSize,
+            headerTitle,            
             size
         } = this.props
         return(
             <div style={containerStyle}>
-            <Button onClick={toggleModal} color={togglerColor} size={togglerSize}>{togglerTitle}</Button>
             <Modal isOpen={isOpen} toggle={toggle} className={modalClass} size={size}>
              <ModalHeader toggle={toggle}>{headerTitle}</ModalHeader>
                 <ModalBody>

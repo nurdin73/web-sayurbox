@@ -13,24 +13,20 @@ export const archiveBuyer = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
-            break;
         case `${ARCHIVE_BUYER}_FULFILLED`:
             return {
                 ...state,
                 archiveBuyer: action.payload.data,
                 isLoading: false
             }
-            break;   
         case `${ARCHIVE_BUYER}_REJECTED`:
             return {
                 ...state,
                 error: true,
                 isLoading: false
             }
-            break; 
         default:
             return state
-            break;
     }
 }
 

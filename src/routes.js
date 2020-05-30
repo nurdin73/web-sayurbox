@@ -12,10 +12,11 @@ const Transaction = React.lazy(() => import('./Pages/Admin/Transaction'));
 const Archive_product = React.lazy(() => import('./Pages/Admin/Archive/Archive_product'));
 const Buyer_archive = React.lazy(() => import('./Pages/Admin/Archive/Archive_users/Buyer_archive'));
 const Seller_archive = React.lazy(() => import('./Pages/Admin/Archive/Archive_users/Seller_archive'));
+const Today_Special = React.lazy(() => import('./Pages/Admin/TodaySpecial'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Home', component: Dashboard },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   // { path: '/archive', name: 'Archive', component: Archive },
   { path: '/archive/product', name: 'Archive Product', component: Archive_product },
@@ -25,9 +26,10 @@ const routes = [
   { path: '/member/penjual', name: 'Penjual', component: Seller },
   { path: '/master/product', name: 'Product', component: Product },
   { path: '/master/discount', name: 'Discount', component: Discount },
+  { path: '/master/todayspecial', name: 'Today Special', component: Today_Special },
   { path: '/report', name: 'Report', component: Report },
   { path: '/transaction', name: 'Transaction', component: Transaction },
-  { path: '/profile', name: 'Profile', component: Profile },
+  { path: '/profile', name: 'Profile', component: Profile },  
 ];
 
 export default routes;

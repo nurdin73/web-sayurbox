@@ -21,16 +21,18 @@ class Login extends Component {
   }
 
   validateEmail = (email) => {
-    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(String(email).toLowerCase())
   }
 
   handleChangeEmail = (e) => {
     this.setState({email: e.target.value})
   }
+
   handleChangePassword = (e) => {
     this.setState({password: e.target.value})
   }
+
   handleSubmit = () => {
     if (this.state.email !== '') {
       if(this.validateEmail(this.state.email)) {
@@ -50,9 +52,6 @@ class Login extends Component {
     } else {
       this.setState({errorPassword: 'field is required', validPass: true})
     }
-
-
-    
     if(this.state.valid1 === true && this.state.valid2 === true) {
       const data = {
         email : this.state.email,
@@ -60,16 +59,16 @@ class Login extends Component {
       }
       this.props.setLogin(data);
     }
-
   }
+
   render() {
     if (localStorage.getItem('token') !== null) {
-      return <Redirect to={{pathname: 'dashboard'}} />
+      return <Redirect to={{pathname: '/'}} />
     }
     const login = this.props.login
     if(login.login.status === "success") {
       localStorage.setItem('token', login.login.data.token);
-      return <Redirect to={{pathname: 'dashboard'}} />
+      return <Redirect to={{pathname: '/'}} />
     }
     return (
       <div className="app flex-row align-items-center">

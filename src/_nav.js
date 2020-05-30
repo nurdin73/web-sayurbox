@@ -29,6 +29,11 @@ export default {
           url: '/master/discount',
           icon: 'cui-tags',
         },
+        {
+          name: 'Today Special',
+          url: '/master/todayspecial',
+          icon: 'icon-badge',
+        },
       ]
     },
     {

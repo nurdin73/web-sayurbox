@@ -1,4 +1,4 @@
-export const URL_API = 'https://sayur-box.herokuapp.com/'
+export const URL_API = 'https://tes.tigatekno.com/'
 export const TOKEN = localStorage.getItem('token') === undefined ? '' : localStorage.getItem('token')
 export const LOGIN = 'LOGIN'
 export const PROFILE = 'PROFILE'
@@ -11,3 +11,5 @@ export const TRANSACTION = 'TRANSACTION'
 
 export const BUYER = 'BUYER'
 export const SELLER = 'SELLER'
+
+export const PRODUCT = 'PRODUCT'
